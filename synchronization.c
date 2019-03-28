@@ -34,6 +34,20 @@ main()
 		pthread_create(&student_thread,NULL,student1,NULL);
 		pthread_join(student_thread,NULL);
 	}
+	else if( ( (strcmp(str1,a)==0 && strcmp(str3,b)==0 ) || (strcmp(str1,b)==0 && strcmp(str3,a)==0 ) ) && flag2==0)
+	{
+		pthread_create(&student_thread,NULL,student2,NULL);
+		pthread_join(student_thread,NULL);
+	}
+	else if( ( (strcmp(str2,a)==0 && strcmp(str3,b)==0 ) || (strcmp(str2,b)==0 && strcmp(str3,a)==0 ) ) && flag3==0)
+	{
+		pthread_create(&student_thread,NULL,student3,NULL);
+		pthread_join(student_thread,NULL);
+	}
+	else
+	{
+		printf("Try Again");
+		}	
 	
 	
 	
