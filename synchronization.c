@@ -8,6 +8,7 @@ void student1();
 void student2();
 void student3();
 sem_t s;
+int flag1 =0;
 char a[10],b[10],c[10];
 char str1[] = "pen";
 char str2[] = "paper";
@@ -36,4 +37,34 @@ void teacher()
 	strlwr(b);
 	sem_post(&s);
 	
+}
+
+void student1()//has question paper with him already,need pen and paer to execute
+{
+	sem_wait(&s);
+	printf("Pen and Paper are selected");
+	flag1=1;
+	printf("\nStudent 1 has been allocated all resouces");
+	printf("\nStudent 1 completed the assignment.");
+	sem_post(&s);
+}
+
+void student2()//has paper with him already,need pen and question paper to execute
+{
+	sem_wait(&s);
+	printf("Pen and Question Paper are selected");
+	flag2=1;
+	printf("\nStudent 2 has been allocated all resouces");
+	printf("\nStudent 2 completed the assignment.");
+	sem_post(&s);
+}
+
+void student3()//has pen with him already,need paper and question paper to execute
+{
+	sem_wait(&s);
+	printf("Paper and Question Paper are selected");
+	flag3=1;
+	printf("\nStudent 3 has been allocated all resouces");
+	printf("\nStudent 3 completed the assignment.");
+	sem_post(&s);
 }
